@@ -1,0 +1,24 @@
+{
+  "name": "apprestapi",
+  "version": "1.0.0",
+  "description": "app rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agungh21/apprestapi.git"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "nodejs"
+  ],
+  "author": "Muhammad Agung Hartono",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agungh21/apprestapi/issues"
+  },
+  "homepage": "https://github.com/agungh21/apprestapi#readme"
+}
