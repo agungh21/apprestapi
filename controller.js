@@ -29,4 +29,21 @@ exports.tampilMhsBerdasarkanId = function (req, res) {
             response.ok(rows, res);
         }
         });
+    };
+    
+    // menambah data
+    exports.tambahMhs = function (req, res) {
+        var nim = req.body.nim;
+        var nama = req.body.nama;
+        var jurusan = req.body.jurusan;
+
+        connection.query('INSERT INTO mahasiswa (nim,nama,jurusan) VALUES(?,?,?)',
+        [nim,nama,jurusan],
+            function(error, rows, fields){
+            if (error) {
+                console.log(error);
+            }else{
+                response.ok("berhasil menambahkan data", res);
+            }
+            });
 };

@@ -11,4 +11,7 @@ module.exports = function(app){
 
     app.route('/mhs/:id')
         .get(myjson.tampilMhsBerdasarkanId);
+
+    app.route('/tambah')
+        .post(myjson.tambahMhs);
 }
