@@ -21,7 +21,7 @@ exports.tampilSemuaMahasiswa = function (req, res) {
 // menampilkan data mhs berdasarkan id
 exports.tampilMhsBerdasarkanId = function (req, res) {
     let id = req.params.id;
-    connection.query('SELECT * FROM mahasiswa WHERE id = ?', [id],
+    connection.query('SELECT * FROM mahasiswa WHERE id_mhs = ?', [id],
         function(error, rows, fields){
         if (error) {
             console.log(error);
@@ -50,12 +50,12 @@ exports.tampilMhsBerdasarkanId = function (req, res) {
 
 // mengubah data berdasarkan id
 exports.ubahMhs = function (req, res) {
-    var id = req.body.id;
+    var id = req.body.id_mhs;
     var nim = req.body.nim;
     var nama = req.body.nama;
     var jurusan = req.body.jurusan;
 
-    connection.query('UPDATE mahasiswa SET nim=?, nama=?, jurusan=? WHERE id=?',
+    connection.query('UPDATE mahasiswa SET nim=?, nama=?, jurusan=? WHERE id_mhs=?',
     [nim,nama,jurusan,id],
         function(error, rows, fields){
         if (error) {
@@ -68,9 +68,9 @@ exports.ubahMhs = function (req, res) {
 
 // menghapus data berdasarkan id
 exports.hapusMhs = function (req, res) {
-    var id = req.body.id;
+    var id = req.body.id_mhs;
 
-    connection.query('DELETE FROM mahasiswa WHERE id=?',
+    connection.query('DELETE FROM mahasiswa WHERE id_mhs=?',
     [id],
         function(error, rows, fields){
         if (error) {
