@@ -16,5 +16,8 @@ module.exports = function(app){
         .post(myjson.tambahMhs);
 
     app.route('/ubah')
-        .put(myjson.UbahMhs);
+        .put(myjson.ubahMhs);
+
+    app.route('/hapus')
+        .delete(myjson.hapusMhs);
 }
