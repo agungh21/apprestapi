@@ -80,3 +80,17 @@ exports.hapusMhs = function (req, res) {
         }
         });
 };
+
+// menampilkan matkul group
+exports.tampilMatkul = function (req, res) {
+    var id = req.body.id_mhs;
+
+    connection.query('SELECT mahasiswa.id_mhs, mahasiswa.nim, mahasiswa.nama, mahasiswa.jurusan, matkul.matkul, matkul.sks FROM krs JOIN matkul JOIN mahasiswa WHERE krs.id_matkul = matkul.id_matkul AND krs.id_mhs = mahasiswa.id_mhs ORDER BY mahasiswa.id_mhs',
+        function(error, rows, fields){
+        if (error) {
+            console.log(error);
+        }else{
+            response.oknested(rows, res);
+        }
+        });
+};

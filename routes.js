@@ -20,4 +20,7 @@ module.exports = function(app){
 
     app.route('/hapus')
         .delete(myjson.hapusMhs);
+
+    app.route('/matkul')
+        .get(myjson.tampilMatkul);
 }
