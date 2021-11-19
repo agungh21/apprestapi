@@ -99,3 +99,7 @@ exports.login = function (req, res) {
     });
 
 };
+
+exports.hrahasia = function(req, res){
+    response.ok("halaman ini hanya untuk role 2", res);
+}
