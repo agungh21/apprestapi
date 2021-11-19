@@ -13,11 +13,11 @@ exports.daftar = function(req, res){
         email: req.body.email,
         password: md5(req.body.password),
         role: req.body.role,
-        tanggal_daftar: req.body.tanggal_daftar
+        tanggal_daftar: new Date()
         
     };
 
-    var query = "SELECT email FROM ?? WHERE ??";
+    var query = "SELECT email FROM ?? WHERE ??=?";
     var table = ["user", "email", post.email];
 
     query = mysql.format(query, table);
@@ -29,17 +29,18 @@ exports.daftar = function(req, res){
             if(rows.length == 0){
                 var query = "INSERT INTO ?? SET ?";
                 var table = ["user"];
+
                 query = mysql.format(query, table);
 
                 connection.query(query, post, function (error, rows) {
                     if(error){
                         console.log(error);
                     }else{
-                        response.ok("Berhasil Menambahkan user");
+                        response.ok("Berhasil Menambahkan user", res);
                     } 
                 });
             }else{
-                response.ok("Email Sudah Terdaftar");
+                response.ok("Email Sudah Terdaftar", res);
             }
         }
     });
